@@ -4,38 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d39410-f48d-444f-9db0-d57238f3c908" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/minesweeper.fxml" afterDir="false" />
+    <list default="true" id="32d39410-f48d-444f-9db0-d57238f3c908" name="Changes" comment="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,8 +100,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697798946377</updated>
-      <workItem from="1697798947679" duration="9524000" />
+      <workItem from="1697798947679" duration="13362000" />
     </task>
+    <task id="LOCAL-00001" summary="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling">
+      <option name="closed" value="true" />
+      <created>1697828915803</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697828915804</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,5 +126,30 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

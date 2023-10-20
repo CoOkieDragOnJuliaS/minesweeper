@@ -24,6 +24,10 @@ public class Cell extends Pane {
 
     public Cell(Image img, int state, int row, int column) {
         view = new ImageView(img);
+        //http://www.java2s.com/ref/java/javafx-imageview-set-fit-heightwidth.html
+        //setting element-width and height
+        view.setFitHeight(CELL_SIZE);
+        view.setFitWidth(CELL_SIZE);
         getChildren().add(view);
         this.state = state;
         this.uncovered = false;

@@ -2,15 +2,15 @@ package com.example.minesweeper_neu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 public class Controller {
-    @FXML
-    private Label welcomeText;
 
     // Model
     private Board board;
@@ -26,13 +26,11 @@ public class Controller {
     @FXML
     private Button restart;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 
     @FXML
     public void initialize() {
+        grid.getChildren().clear();
+
         isActive = true;
         this.board = new Board();
         this.grid = new GridPane();
@@ -88,5 +86,13 @@ public class Controller {
             System.out.println(GridPane.getColumnIndex(c) + " " + GridPane.getRowIndex(c));
         }
         */
+    }
+
+    public int getWidthOfGrid(){
+        return Board.ROWS * Board.CELL_SIZE + 10;
+    }
+
+    public int getHeightOfGrid(){
+        return Board.COLS * Board.CELL_SIZE + 10;
     }
 }

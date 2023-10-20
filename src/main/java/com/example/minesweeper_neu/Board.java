@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Board {
 
@@ -82,6 +81,7 @@ public class Board {
         }
     }
 
+    //TODO: Overflow-Exception - because of recursive?
     public boolean uncover(int row, int col) {
         Cell currentCell = cells[row][col];
         // TODO uncover the cell, check if it is a bomb, if it is an empty cell you may! uncover all adjacent empty cells.
