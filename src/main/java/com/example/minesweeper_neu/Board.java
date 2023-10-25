@@ -69,13 +69,11 @@ public class Board {
             currentCell.getNeighbours().forEach((neighbourCell) -> {
                 if(neighbourCell.getState() != 9) {  //9 is the mine state
                     neighbourCell.setState(neighbourCell.getState() + 1);
-                    neighbourCell.updateImage(images[neighbourCell.getState()]);
                 }else{
                     List<Cell> sameNeighbours = neighbourCell.getNeighbours().stream()
                             .filter(neighboursOfCurrentCell::contains)
                             .toList();
                     neighbourCell.setState(neighbourCell.getState() + 1);
-                    neighbourCell.updateImage(images[neighbourCell.getState()]);
                 }
             });
         }
@@ -83,11 +81,12 @@ public class Board {
 
     public boolean uncover(int row, int col) {
         Cell currentCell = cells[row][col];
-        currentCell.uncoverCell(images[currentCell.getState()]);
         if(!currentCell.isUncovered()) {
+            currentCell.uncoverCell(images[currentCell.getState()]);
+            this.cellsUncovered++;
             // TODO uncover the cell, check if it is a bomb, if it is an empty cell you may! uncover all adjacent empty cells.
             if (currentCell.getState() == 9) {
-                gameOver = true;
+                this.gameOver = true;
             } else if (currentCell.getState() == 0) {
                 uncoverEmptyCells(currentCell);
             }
@@ -101,6 +100,7 @@ public class Board {
                 .forEach((cellNeighbour) -> {
                     if(!cellNeighbour.isUncovered() && cellNeighbour.getState() == 0) {
                         cellNeighbour.uncoverCell(images[cellNeighbour.getState()]);
+                        this.cellsUncovered++;
                         uncoverEmptyCells(cellNeighbour);
                     }else if(!cellNeighbour.isUncovered() && cellNeighbour.getState() != 9){
                         uncover(cellNeighbour.getRow(), cellNeighbour.getColumn());
@@ -108,15 +108,14 @@ public class Board {
                 });
     }
 
-    public boolean markCell(int row, int col) {
+    public void markCell(int row, int col) {
         Cell currentCell = cells[row][col];
         if(!currentCell.isMarkedAsMine() && !currentCell.isUncovered()){
             currentCell.setMarkedAsMine(true);
-            this.minesMarked += 1;
+            this.minesMarked++;
             currentCell.updateImage(images[11]); //Flag for marking as mine
         }
         // TODO mark the cell if it is not already marked.
-        return true;
     }
 
     public void uncoverAllCells(){

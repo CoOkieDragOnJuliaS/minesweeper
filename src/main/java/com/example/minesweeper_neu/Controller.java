@@ -2,13 +2,11 @@ package com.example.minesweeper_neu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.GridPane;
 
 public class Controller {
@@ -46,10 +44,10 @@ public class Controller {
     public void update(MouseEvent event){
         if(isActive) {
             if (event.getEventType() == MouseEvent.MOUSE_CLICKED) {
-                int col = (int) event.getX() / Board.CELL_SIZE;
-                int row = (int) event.getY() / Board.CELL_SIZE;
+                int col = ((int) event.getX() + 10) / Board.CELL_SIZE;
+                int row = ((int) event.getY() + 10) / Board.CELL_SIZE;
                 if (event.getButton() == MouseButton.PRIMARY) {
-                    if (board.uncover(row, col)) {
+                    if (board.uncover(col, row)) {
                         if(board.isGameOver()){
                             board.uncoverAllCells();
                             message.setText("Sorry. Leider verloren.");
@@ -90,10 +88,10 @@ public class Controller {
     }
 
     public int getWidthOfGrid(){
-        return Board.ROWS * Board.CELL_SIZE + 10;
+        return (Board.ROWS * Board.CELL_SIZE) + 10;
     }
 
     public int getHeightOfGrid(){
-        return Board.COLS * Board.CELL_SIZE + 10;
+        return (Board.COLS * Board.CELL_SIZE) + 10;
     }
 }
