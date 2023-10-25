@@ -81,24 +81,36 @@ public class Board {
         }
     }
 
-    //TODO: Overflow-Exception - because of recursive?
     public boolean uncover(int row, int col) {
         Cell currentCell = cells[row][col];
-        // TODO uncover the cell, check if it is a bomb, if it is an empty cell you may! uncover all adjacent empty cells.
-        if(currentCell.getState() == 9){
-            gameOver = true;
-        }else if(currentCell.getState() == 0){
-            uncoverEmptyCells(currentCell);
-        }
-        else{
-            currentCell.uncoverCell(images[currentCell.getState()]);
+        currentCell.uncoverCell(images[currentCell.getState()]);
+        if(!currentCell.isUncovered()) {
+            // TODO uncover the cell, check if it is a bomb, if it is an empty cell you may! uncover all adjacent empty cells.
+            if (currentCell.getState() == 9) {
+                gameOver = true;
+            } else if (currentCell.getState() == 0) {
+                uncoverEmptyCells(currentCell);
+            }
         }
         return true; // could be a void function as well
     }
 
+    public void uncoverEmptyCells(Cell cell) {
+        //if cell is empty, call all empty neighbours and uncoverEmptyCells
+        cell.getNeighbours()
+                .forEach((cellNeighbour) -> {
+                    if(!cellNeighbour.isUncovered() && cellNeighbour.getState() == 0) {
+                        cellNeighbour.uncoverCell(images[cellNeighbour.getState()]);
+                        uncoverEmptyCells(cellNeighbour);
+                    }else if(!cellNeighbour.isUncovered() && cellNeighbour.getState() != 9){
+                        uncover(cellNeighbour.getRow(), cellNeighbour.getColumn());
+                    }
+                });
+    }
+
     public boolean markCell(int row, int col) {
         Cell currentCell = cells[row][col];
-        if(!currentCell.isMarkedAsMine()){
+        if(!currentCell.isMarkedAsMine() && !currentCell.isUncovered()){
             currentCell.setMarkedAsMine(true);
             this.minesMarked += 1;
             currentCell.updateImage(images[11]); //Flag for marking as mine
@@ -107,21 +119,13 @@ public class Board {
         return true;
     }
 
-    public void uncoverEmptyCells(Cell cell) {
-        cell.getNeighbours()
-                .forEach((cellNeighbour) -> {
-                    if(cellNeighbour.getState() == 0){
-                        uncover(cellNeighbour.getRow(), cellNeighbour.getColumn());
-                    }
-                });
-    }
-
-
     public void uncoverAllCells(){
         for(int rows = 0; rows < ROWS; rows++) {
             for (int cols = 0; cols < COLS; cols++) {
                 Cell currentCell = cells[rows][cols];
-                currentCell.uncoverCell(images[currentCell.getState()]);
+                if(!currentCell.isUncovered()) {
+                    currentCell.uncoverCell(images[currentCell.getState()]);
+                }
             }
         }
         //TODO Uncover everything in case a mine was hit and the game is over.

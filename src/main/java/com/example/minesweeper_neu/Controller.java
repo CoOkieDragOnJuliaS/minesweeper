@@ -2,13 +2,14 @@ package com.example.minesweeper_neu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 
 public class Controller {
 
@@ -33,7 +34,6 @@ public class Controller {
 
         isActive = true;
         this.board = new Board();
-        this.grid = new GridPane();
         Cell[][] cells = this.board.getCells();
         for(int i = 0; i < Board.ROWS; i++){
             for(int j = 0; j < Board.COLS; j++) {
@@ -77,6 +77,7 @@ public class Controller {
     public void restart(ActionEvent actionEvent) {
         grid.getChildren().clear();
         initialize();
+        message.setText(" Marker: " + board.getMinesMarked() + "/" + Board.NUM_MINES);
 
         // Testing ;) add Methode fügt nur hinzu. das bestehende bleibt. daher vorher clear.
         /*

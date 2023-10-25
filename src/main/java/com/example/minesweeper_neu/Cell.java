@@ -2,6 +2,8 @@ package com.example.minesweeper_neu;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.Pane;
 
 import java.util.List;

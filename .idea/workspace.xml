@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32d39410-f48d-444f-9db0-d57238f3c908" name="Changes" comment="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/minesweeper.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/minesweeper.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +26,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -41,11 +46,16 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2X1aGW5ZpFm9km2SEWV8QOpzNGV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -58,7 +68,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "feature/gridPaneTask",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,7 +82,7 @@
       <recent name="D:\Studium\Programming\Java Projects\Minesweeper_Neu\src\main\resources\com\example\minesweeper_neu" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.minesweeper_neu.Main" />
       <module name="Minesweeper_Neu.main" />
@@ -86,8 +96,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="minesweeper [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.minesweeper [run]" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -101,6 +134,7 @@
       <option name="presentableId" value="Default" />
       <updated>1697798946377</updated>
       <workItem from="1697798947679" duration="13362000" />
+      <workItem from="1698248084579" duration="4737000" />
     </task>
     <task id="LOCAL-00001" summary="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling">
       <option name="closed" value="true" />
@@ -135,19 +169,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Cell.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
