@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d39410-f48d-444f-9db0-d57238f3c908" name="Changes" comment="[Julia] gridPane finally showing - several bugs to fix!">
+    <list default="true" id="32d39410-f48d-444f-9db0-d57238f3c908" name="Changes" comment="[Julia] bugs still existent: Markings are uncovered; uncovering all tiles uncovers weird images; !! clicking on tile clicks on completely different col/row!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/minesweeper.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/minesweeper.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1697798946377</updated>
       <workItem from="1697798947679" duration="13362000" />
-      <workItem from="1698248084579" duration="8946000" />
+      <workItem from="1698248084579" duration="10784000" />
     </task>
     <task id="LOCAL-00001" summary="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling">
       <option name="closed" value="true" />
@@ -148,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698253489495</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="[Julia] bugs still existent: Markings are uncovered; uncovering all tiles uncovers weird images; !! clicking on tile clicks on completely different col/row!">
+      <option name="closed" value="true" />
+      <created>1698257549515</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698257549515</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,17 +176,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling" />
     <MESSAGE value="[Julia] gridPane finally showing - several bugs to fix!" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Julia] gridPane finally showing - several bugs to fix!" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="[Julia] bugs still existent: Markings are uncovered; uncovering all tiles uncovers weird images; !! clicking on tile clicks on completely different col/row!" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Julia] bugs still existent: Markings are uncovered; uncovering all tiles uncovers weird images; !! clicking on tile clicks on completely different col/row!" />
   </component>
 </project>
