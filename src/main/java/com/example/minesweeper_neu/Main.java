@@ -18,6 +18,9 @@ public class Main extends Application {
         stage.setHeight(controller.getHeightOfGrid());
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Minesweeper");
+        //Elements to prevent resizing and set the stage to the scene size with GridPane!
+        stage.sizeToScene(); //https://www.java-forum.org/thema/wie-kann-ich-die-fenstergroesse-entsprechend-dem-inhalt-vergroessern-verkleinern.187675/
+        stage.setResizable(false); //https://stackoverflow.com/questions/34809447/disable-maximize-button-and-resizing-window-in-javafx
         stage.setScene(scene);
         stage.show();
     }

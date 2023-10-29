@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d39410-f48d-444f-9db0-d57238f3c908" name="Changes" comment="[Julia] bugs still existent: Markings are uncovered; uncovering all tiles uncovers weird images; !! clicking on tile clicks on completely different col/row!">
+    <list default="true" id="32d39410-f48d-444f-9db0-d57238f3c908" name="Changes" comment="[Julia] bugs still existent. Grid is now centered">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/minesweeper.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/minesweeper_neu/minesweeper.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,21 +57,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/gridPaneTask",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/gridPaneTask&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Studium\Programming\Java Projects\Minesweeper_Neu\src\main\resources\com\example\minesweeper_neu" />
@@ -130,7 +129,8 @@
       <option name="presentableId" value="Default" />
       <updated>1697798946377</updated>
       <workItem from="1697798947679" duration="13362000" />
-      <workItem from="1698248084579" duration="10784000" />
+      <workItem from="1698248084579" duration="11068000" />
+      <workItem from="1698583258079" duration="3921000" />
     </task>
     <task id="LOCAL-00001" summary="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling">
       <option name="closed" value="true" />
@@ -156,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698257549515</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[Julia] bugs still existent. Grid is now centered">
+      <option name="closed" value="true" />
+      <created>1698259422271</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698259422271</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +185,7 @@
     <MESSAGE value="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling" />
     <MESSAGE value="[Julia] gridPane finally showing - several bugs to fix!" />
     <MESSAGE value="[Julia] bugs still existent: Markings are uncovered; uncovering all tiles uncovers weird images; !! clicking on tile clicks on completely different col/row!" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Julia] bugs still existent: Markings are uncovered; uncovering all tiles uncovers weird images; !! clicking on tile clicks on completely different col/row!" />
+    <MESSAGE value="[Julia] bugs still existent. Grid is now centered" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Julia] bugs still existent. Grid is now centered" />
   </component>
 </project>
