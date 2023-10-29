@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d39410-f48d-444f-9db0-d57238f3c908" name="Changes" comment="[Julia] bugs still existent. Grid is now centered">
+    <list default="true" id="32d39410-f48d-444f-9db0-d57238f3c908" name="Changes" comment="[Julia] Grid now working, resizing prevented/ Bugs in the game still present">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/minesweeper_neu/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +130,7 @@
       <updated>1697798946377</updated>
       <workItem from="1697798947679" duration="13362000" />
       <workItem from="1698248084579" duration="11068000" />
-      <workItem from="1698583258079" duration="3921000" />
+      <workItem from="1698583258079" duration="5839000" />
     </task>
     <task id="LOCAL-00001" summary="[Julia] initial commit with a lot of changes. TODOs done, nothing to see yet. TODO: Refactoring and ErrorHandling">
       <option name="closed" value="true" />
@@ -164,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698259422271</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[Julia] Grid now working, resizing prevented/ Bugs in the game still present">
+      <option name="closed" value="true" />
+      <created>1698592776241</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698592776241</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +194,7 @@
     <MESSAGE value="[Julia] gridPane finally showing - several bugs to fix!" />
     <MESSAGE value="[Julia] bugs still existent: Markings are uncovered; uncovering all tiles uncovers weird images; !! clicking on tile clicks on completely different col/row!" />
     <MESSAGE value="[Julia] bugs still existent. Grid is now centered" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Julia] bugs still existent. Grid is now centered" />
+    <MESSAGE value="[Julia] Grid now working, resizing prevented/ Bugs in the game still present" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Julia] Grid now working, resizing prevented/ Bugs in the game still present" />
   </component>
 </project>

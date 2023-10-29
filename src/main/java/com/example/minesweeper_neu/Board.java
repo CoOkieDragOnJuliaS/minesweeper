@@ -115,6 +115,11 @@ public class Board {
             this.minesMarked++;
             currentCell.updateImage(images[11]); //Flag for marking as mine
         }
+        if(currentCell.isMarkedAsMine() && !currentCell.isUncovered()){
+            currentCell.setMarkedAsMine(false);
+            this.minesMarked--;
+            currentCell.updateImage(images[currentCell.getState()]);
+        }
         // TODO mark the cell if it is not already marked.
     }
 
