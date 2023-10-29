@@ -2,15 +2,11 @@ package com.example.minesweeper_neu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.RowConstraints;
 
 public class Controller {
 
@@ -36,16 +32,16 @@ public class Controller {
         isActive = true;
         this.board = new Board();
         Cell[][] cells = this.board.getCells();
-        for(int i = 0; i < Board.ROWS; i++){
-            for(int j = 0; j < Board.COLS; j++) {
+        for (int i = 0; i < Board.ROWS; i++) {
+            for (int j = 0; j < Board.COLS; j++) {
                 grid.add(cells[i][j], j, i);
             }
         }
     }
 
     @FXML
-    public void update(MouseEvent event){
-        if(isActive) {
+    public void update(MouseEvent event) {
+        if (isActive) {
             if (event.getEventType() == MouseEvent.MOUSE_CLICKED) {
                 int col = ((int) event.getX()) / Board.CELL_SIZE;
                 int row = ((int) event.getY()) / Board.CELL_SIZE;
@@ -56,7 +52,7 @@ public class Controller {
                 //try of different values for correct row/column
                 if (event.getButton() == MouseButton.PRIMARY) {
                     if (board.uncover(row, col)) {
-                        if(board.isGameOver()){
+                        if (board.isGameOver()) {
                             board.uncoverAllCells();
                             message.setText("Sorry. Leider verloren.");
                             board.uncoverAllCells();
@@ -71,7 +67,7 @@ public class Controller {
                     message.setText("Glückwunsch! Du hast gewonnen.");
                     isActive = false;
                 }
-                if(isActive)
+                if (isActive)
                     message.setText(" Marker: " + board.getMinesMarked() + "/" + Board.NUM_MINES);
             }
         }
@@ -93,11 +89,11 @@ public class Controller {
         */
     }
 
-    public int getWidthOfGrid(){
+    public int getWidthOfGrid() {
         return (Board.ROWS * Board.CELL_SIZE) + 10;
     }
 
-    public int getHeightOfGrid(){
+    public int getHeightOfGrid() {
         return (Board.COLS * Board.CELL_SIZE) + 10;
     }
 }

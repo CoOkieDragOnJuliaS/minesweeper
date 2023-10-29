@@ -28,7 +28,7 @@ public class Board {
     /**
      * Constructor preparing the game. Playing a new game means creating a new Board.
      */
-    public Board(){
+    public Board() {
         cells = new Cell[ROWS][COLS];
         cellsUncovered = 0;
         minesMarked = 0;
@@ -36,15 +36,15 @@ public class Board {
         loadImages();
         // at the beginning every cell is covered
 
-        for(int rows = 0; rows < ROWS; rows++){
-            for(int cols = 0; cols < COLS; cols++){
+        for (int rows = 0; rows < ROWS; rows++) {
+            for (int cols = 0; cols < COLS; cols++) {
                 cells[rows][cols] = new Cell(images[10], 0, rows, cols);
             }
         }
 
         // set neighbours for convenience
-        for(int rows = 0; rows < ROWS; rows++){
-            for(int cols = 0; cols < COLS; cols++){
+        for (int rows = 0; rows < ROWS; rows++) {
+            for (int cols = 0; cols < COLS; cols++) {
                 //All neighbours
                 cells[rows][cols].setNeighbours(computeNeighbours(rows, cols));
             }
@@ -55,28 +55,28 @@ public class Board {
         setNeighboursOfMines();
     }
 
-    public void placeRandomMines(){
+    public void placeRandomMines() {
         cellsWithMines = new HashSet<>();
-        for(int i = 0; i < NUM_MINES; i++){
+        for (int i = 0; i < NUM_MINES; i++) {
             int randomRow = getRandomNumberInts(0, ROWS - 1);
             int randomColumn = getRandomNumberInts(0, COLS - 1);
 
             Cell currentCell = cells[randomRow][randomColumn];
-            if(!cellsWithMines.contains(currentCell)) {
+            if (!cellsWithMines.contains(currentCell)) {
                 currentCell.setState(9);
                 cellsWithMines.add(currentCell);
-            }else{
+            } else {
                 i--;
             }
         }
     }
 
-    private void setNeighboursOfMines(){
-        for(int rows = 0; rows < ROWS; rows++){
-            for(int cols = 0; cols < COLS; cols++) {
+    private void setNeighboursOfMines() {
+        for (int rows = 0; rows < ROWS; rows++) {
+            for (int cols = 0; cols < COLS; cols++) {
                 Cell currentCell = cells[rows][cols];
                 int stateOfCell = currentCell.getState();
-                if(!cellsWithMines.contains(currentCell)) {
+                if (!cellsWithMines.contains(currentCell)) {
                     for (Cell neighbourCell : currentCell.getNeighbours()) {
                         if (cellsWithMines.contains(neighbourCell)) {
                             stateOfCell++;
@@ -91,17 +91,17 @@ public class Board {
     public boolean uncover(int row, int col) {
         Cell currentCell = cells[row][col];
 
-        if(currentCell.isMarkedAsMine()) {
+        if (currentCell.isMarkedAsMine()) {
             if (hintBeforeFlagIsConfirmed()) {
                 uncoverCell(currentCell);
             }
-        }else{
+        } else {
             uncoverCell(currentCell);
         }
         return true; // could be a void function as well
     }
 
-    private void uncoverCell(Cell currentCell){
+    private void uncoverCell(Cell currentCell) {
         if (currentCell.getState() == 9) {
             this.gameOver = true;
         }
@@ -114,22 +114,27 @@ public class Board {
         }
     }
 
-    private boolean hintBeforeFlagIsConfirmed(){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setContentText("Sie sind im Begriff ein markiertes Feld aufzudecken!");
-            Optional<ButtonType> buttonType = alert.showAndWait();
-            return buttonType.isPresent() && buttonType.get().equals(ButtonType.OK);
+    private boolean hintBeforeFlagIsConfirmed() {
+        /**
+         * The following 4 line of Code have been written with the help of the Internet,
+         * https://stackoverflow.com/questions/75356559/javafx-how-to-show-an-alert-confirmation-before-a-property-value-is-changed,
+         * last visit: 29.10.2023
+         */
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Sie sind im Begriff ein markiertes Feld aufzudecken!");
+        Optional<ButtonType> buttonType = alert.showAndWait();
+        return buttonType.isPresent() && buttonType.get().equals(ButtonType.OK);
     }
 
     public void uncoverEmptyCells(Cell cell) {
         //if cell is empty, call all empty neighbours and uncoverEmptyCells
         cell.getNeighbours()
                 .forEach((cellNeighbour) -> {
-                    if(!cellNeighbour.isUncovered() && cellNeighbour.getState() == 0) {
+                    if (!cellNeighbour.isUncovered() && cellNeighbour.getState() == 0) {
                         cellNeighbour.uncoverCell(images[cellNeighbour.getState()]);
                         this.cellsUncovered++;
                         uncoverEmptyCells(cellNeighbour);
-                    }else if(!cellNeighbour.isUncovered() && cellNeighbour.getState() != 9){
+                    } else if (!cellNeighbour.isUncovered() && cellNeighbour.getState() != 9) {
                         uncover(cellNeighbour.getRow(), cellNeighbour.getColumn());
                     }
                 });
@@ -137,26 +142,26 @@ public class Board {
 
     public void markCell(int row, int col) {
         Cell currentCell = cells[row][col];
-        if(!currentCell.isMarkedAsMine() && !currentCell.isUncovered()){
+        if (!currentCell.isMarkedAsMine() && !currentCell.isUncovered()) {
             currentCell.setMarkedAsMine(true);
             this.minesMarked++;
             currentCell.updateImage(images[11]); //Flag for marking as mine
-        }else if(currentCell.isMarkedAsMine()){ //unmarking a cell
+        } else if (currentCell.isMarkedAsMine()) { //unmarking a cell
             unmarkCell(currentCell);
         }
     }
 
-    private void unmarkCell(Cell markedCell){
+    private void unmarkCell(Cell markedCell) {
         markedCell.setMarkedAsMine(false);
         this.minesMarked--;
         markedCell.updateImage(images[10]);
     }
 
-    public void uncoverAllCells(){
-        for(int rows = 0; rows < ROWS; rows++) {
+    public void uncoverAllCells() {
+        for (int rows = 0; rows < ROWS; rows++) {
             for (int cols = 0; cols < COLS; cols++) {
                 Cell currentCell = cells[rows][cols];
-                if(!currentCell.isUncovered()) {
+                if (!currentCell.isUncovered()) {
                     currentCell.uncoverCell(images[currentCell.getState()]);
                 }
             }
@@ -164,44 +169,48 @@ public class Board {
     }
 
 
-    public List<Cell> computeNeighbours(int rows, int cols){
+    public List<Cell> computeNeighbours(int rows, int cols) {
         List<Cell> listOfNeighbours = new ArrayList<>();
         // TODO get all the neighbours for a given cell. this means coping with mines at the borders.
-        //https://stackoverflow.com/questions/47295392/minesweeper-algorithm-for-finding-neighbours
-                //neighbour upper left
-                if(rows - 1 >= 0 && cols - 1 >= 0){
-                    listOfNeighbours.add(cells[rows - 1][cols - 1]);
-                }
-                //neighbour above
-                if(rows - 1 >= 0){
-                    listOfNeighbours.add(cells[rows - 1][cols]);
-                }
-                //neighbour upper right
-                if(rows - 1 >= 0 && cols + 1 < COLS){
-                    listOfNeighbours.add(cells[rows - 1][cols + 1]);
-                }
-                //neighbour righthand
-                if(cols + 1 < COLS){
-                    listOfNeighbours.add(cells[rows][cols + 1]);
-                }
-                //neighbour down right
-                if(rows + 1 < ROWS && cols + 1 < COLS){
-                    listOfNeighbours.add(cells[rows + 1][cols + 1]);
-                }
-                //neighbour below
-                if(rows + 1 < ROWS){
-                    listOfNeighbours.add(cells[rows + 1][cols]);
-                }
-                //neighbour down left
-                if(rows + 1 < ROWS && cols - 1 >= 0){
-                    listOfNeighbours.add(cells[rows + 1][cols - 1]);
-                }
-                //neighbour lefthand
-                if(cols - 1 >= 0){
-                    listOfNeighbours.add(cells[rows][cols - 1]);
-                }
+        /**
+         * The following 31 lines of Code have been taken from the Internet |
+         * https://stackoverflow.com/questions/47295392/minesweeper-algorithm-for-finding-neighbours,
+         * last visit: 20.10.2023
+         */
+        //neighbour upper left
+        if (rows - 1 >= 0 && cols - 1 >= 0) {
+            listOfNeighbours.add(cells[rows - 1][cols - 1]);
+        }
+        //neighbour above
+        if (rows - 1 >= 0) {
+            listOfNeighbours.add(cells[rows - 1][cols]);
+        }
+        //neighbour upper right
+        if (rows - 1 >= 0 && cols + 1 < COLS) {
+            listOfNeighbours.add(cells[rows - 1][cols + 1]);
+        }
+        //neighbour righthand
+        if (cols + 1 < COLS) {
+            listOfNeighbours.add(cells[rows][cols + 1]);
+        }
+        //neighbour down right
+        if (rows + 1 < ROWS && cols + 1 < COLS) {
+            listOfNeighbours.add(cells[rows + 1][cols + 1]);
+        }
+        //neighbour below
+        if (rows + 1 < ROWS) {
+            listOfNeighbours.add(cells[rows + 1][cols]);
+        }
+        //neighbour down left
+        if (rows + 1 < ROWS && cols - 1 >= 0) {
+            listOfNeighbours.add(cells[rows + 1][cols - 1]);
+        }
+        //neighbour lefthand
+        if (cols - 1 >= 0) {
+            listOfNeighbours.add(cells[rows][cols - 1]);
+        }
 
-                cells[rows][cols].setNeighbours(listOfNeighbours);
+        cells[rows][cols].setNeighbours(listOfNeighbours);
 
         return listOfNeighbours;
     }
@@ -209,9 +218,9 @@ public class Board {
     /**
      * Loads the given images into memory. Of course you may use your own images and layouts.
      */
-    private void loadImages(){
+    private void loadImages() {
         images = new Image[NUM_IMAGES];
-        for(int i = 0; i < NUM_IMAGES; i++){
+        for (int i = 0; i < NUM_IMAGES; i++) {
             var path = "src/main/resources/com/example/minesweeper_neu/" + i + ".png";
             FileInputStream fis = null;
             try {
@@ -229,13 +238,14 @@ public class Board {
 
     /**
      * Computes a random int number between min and max.
+     *
      * @param min the lower bound. inclusive.
      * @param max the upper bound. inclusive.
      * @return a random int.
      */
-    private int getRandomNumberInts(int min, int max){
+    private int getRandomNumberInts(int min, int max) {
         Random random = new Random();
-        return random.ints(min,(max+1)).findFirst().getAsInt();
+        return random.ints(min, (max + 1)).findFirst().getAsInt();
     }
 
     public int getMinesMarked() {
