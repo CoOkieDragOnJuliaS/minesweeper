@@ -1,12 +1,12 @@
 package com.example.minesweeper_neu;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Board {
 
@@ -23,6 +23,7 @@ public class Board {
     private int cellsUncovered;
     private int minesMarked;
     private boolean gameOver;
+    private HashSet<Cell> cellsWithMines;
 
     /**
      * Constructor preparing the game. Playing a new game means creating a new Board.
@@ -51,47 +52,73 @@ public class Board {
 
         // then we place NUM_MINES on the board and adjust the neighbours (1,2,3,4,... if not a mine already)
         placeRandomMines();
-
+        setNeighboursOfMines();
     }
 
     public void placeRandomMines(){
+        cellsWithMines = new HashSet<>();
         for(int i = 0; i < NUM_MINES; i++){
-            //https://www.geeksforgeeks.org/generating-random-numbers-in-java/
-            //int randomRow = ThreadLocalRandom.current().nextInt(0, ROWS - 1);
-            //int randomColumn = ThreadLocalRandom.current().nextInt(0, COLS - 1);
             int randomRow = getRandomNumberInts(0, ROWS - 1);
             int randomColumn = getRandomNumberInts(0, COLS - 1);
 
             Cell currentCell = cells[randomRow][randomColumn];
-            currentCell.setState(9);
-            List<Cell> neighboursOfCurrentCell = currentCell.getNeighbours();
-            //https://howtodoinjava.com/java/collections/arraylist/arraylist-foreach/
-            currentCell.getNeighbours().forEach((neighbourCell) -> {
-                if(neighbourCell.getState() != 9) {  //9 is the mine state
-                    neighbourCell.setState(neighbourCell.getState() + 1);
-                }else{
-                    List<Cell> sameNeighbours = neighbourCell.getNeighbours().stream()
-                            .filter(neighboursOfCurrentCell::contains)
-                            .toList();
-                    neighbourCell.setState(neighbourCell.getState() + 1);
+            if(!cellsWithMines.contains(currentCell)) {
+                currentCell.setState(9);
+                cellsWithMines.add(currentCell);
+            }else{
+                i--;
+            }
+        }
+    }
+
+    private void setNeighboursOfMines(){
+        for(int rows = 0; rows < ROWS; rows++){
+            for(int cols = 0; cols < COLS; cols++) {
+                Cell currentCell = cells[rows][cols];
+                int stateOfCell = currentCell.getState();
+                if(!cellsWithMines.contains(currentCell)) {
+                    for (Cell neighbourCell : currentCell.getNeighbours()) {
+                        if (cellsWithMines.contains(neighbourCell)) {
+                            stateOfCell++;
+                        }
+                    }
+                    currentCell.setState(stateOfCell);
                 }
-            });
+            }
         }
     }
 
     public boolean uncover(int row, int col) {
         Cell currentCell = cells[row][col];
-        if(!currentCell.isUncovered()) {
+
+        if(currentCell.isMarkedAsMine()) {
+            if (hintBeforeFlagIsConfirmed()) {
+                uncoverCell(currentCell);
+            }
+        }else{
+            uncoverCell(currentCell);
+        }
+        return true; // could be a void function as well
+    }
+
+    private void uncoverCell(Cell currentCell){
+        if (currentCell.getState() == 9) {
+            this.gameOver = true;
+        }
+        if (!currentCell.isUncovered()) {
             currentCell.uncoverCell(images[currentCell.getState()]);
             this.cellsUncovered++;
-            // TODO uncover the cell, check if it is a bomb, if it is an empty cell you may! uncover all adjacent empty cells.
-            if (currentCell.getState() == 9) {
-                this.gameOver = true;
-            } else if (currentCell.getState() == 0) {
+            if (currentCell.getState() == 0) {
                 uncoverEmptyCells(currentCell);
             }
         }
-        return true; // could be a void function as well
+    }
+
+    private boolean hintBeforeFlagIsConfirmed(){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Sie sind im Begriff ein markiertes Feld aufzudecken!");
+            Optional<ButtonType> buttonType = alert.showAndWait();
+            return buttonType.isPresent() && buttonType.get().equals(ButtonType.OK);
     }
 
     public void uncoverEmptyCells(Cell cell) {
@@ -114,13 +141,15 @@ public class Board {
             currentCell.setMarkedAsMine(true);
             this.minesMarked++;
             currentCell.updateImage(images[11]); //Flag for marking as mine
+        }else if(currentCell.isMarkedAsMine()){ //unmarking a cell
+            unmarkCell(currentCell);
         }
-        if(currentCell.isMarkedAsMine() && !currentCell.isUncovered()){
-            currentCell.setMarkedAsMine(false);
-            this.minesMarked--;
-            currentCell.updateImage(images[currentCell.getState()]);
-        }
-        // TODO mark the cell if it is not already marked.
+    }
+
+    private void unmarkCell(Cell markedCell){
+        markedCell.setMarkedAsMine(false);
+        this.minesMarked--;
+        markedCell.updateImage(images[10]);
     }
 
     public void uncoverAllCells(){
@@ -132,7 +161,6 @@ public class Board {
                 }
             }
         }
-        //TODO Uncover everything in case a mine was hit and the game is over.
     }
 
 

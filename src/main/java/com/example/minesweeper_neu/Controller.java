@@ -37,11 +37,7 @@ public class Controller {
         this.board = new Board();
         Cell[][] cells = this.board.getCells();
         for(int i = 0; i < Board.ROWS; i++){
-            RowConstraints rowConstraints = new RowConstraints();
-            grid.getRowConstraints().add(rowConstraints);
             for(int j = 0; j < Board.COLS; j++) {
-                ColumnConstraints colConstraints = new ColumnConstraints();
-                grid.getColumnConstraints().add(colConstraints);
                 grid.add(cells[i][j], j, i);
             }
         }
@@ -66,8 +62,6 @@ public class Controller {
                             board.uncoverAllCells();
                             isActive = false;
                         }
-                    } else {
-                        //TODO Give hint when one tries to uncover a marked cell.
                     }
                 } else if (event.getButton() == MouseButton.SECONDARY) {
                     board.markCell(row, col);
